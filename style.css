@@ -1,8 +1,11 @@
 #dieButtonContainer button{
     border-radius: 15px;
 }
+
 .die span{
     height: 200px;
+    background-color: #000;
+    color: #fff;
     border: 5px solid #000;
     border-radius: 15px;
     font-size: 40px;
