@@ -4,7 +4,6 @@ let dieContainer = document.querySelector("#dieContainer .container .row");
 let rerollDie = document.querySelector("#rerollDie");
 let sumDie = document.querySelector("#sumDie");
 
-let total = [];
 let counter = 0;
 
 class Die{
@@ -18,8 +17,6 @@ class Die{
         this.div.appendChild(this.span);
         dieContainer.appendChild(this.div);
         // total.push(Number(this.span.innerHTML));
-
-
         this.span.addEventListener("click",()=>{
             this.span.innerHTML = this.roll();
             // let index = total.indexOf(this.span.id)
@@ -47,22 +44,17 @@ sumDie.addEventListener("click",()=>{
     let x = 0;
     allNumbers.forEach((num)=>{
         x += Number(num.textContent);
-    })
+    });
     alert(x)
+});
+
+rerollDie.addEventListener("click",()=>{
+    let allNumbers = document.querySelectorAll(".dieText");
+    allNumbers.forEach((num)=>{
+       console.log((num.textContent = Math.floor(Math.random() * 6 + 1)));
+    });
 })
 
-
-// let index = total.indexOf(this.span)
-// total.splice(index,1, Number(this.span.innerHTML));
-// console.log(total)
-
-
-// this.span.addEventListener("dblclick", ()=>{
-//     this.span.remove();
-//     this.div.remove();
-//     let index = total.indexOf(this.div)
-//     total.splice(index,1);
-// });
 
 // Double clicking removes die removes from screen and memory
 // re roll die, rerolls all die on the screen
