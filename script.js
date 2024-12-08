@@ -17,7 +17,7 @@ class Die{
         this.span.innerHTML = this.roll();
         this.div.appendChild(this.span);
         dieContainer.appendChild(this.div);
-        total.push(Number(this.span.innerHTML));
+        // total.push(Number(this.span.innerHTML));
 
 
         this.span.addEventListener("click",()=>{
@@ -27,7 +27,8 @@ class Die{
             total.splice(x,1, Number(this.span.innerHTML));
         })
         this.span.addEventListener("dblclick", ()=>{
-            
+            this.span.remove()
+            this.div.remove()
         });
     }
 
@@ -42,10 +43,11 @@ newDie.addEventListener("click", ()=>{
     counter ++
 });
 sumDie.addEventListener("click",()=>{
+    let allNumbers = document.querySelectorAll(".dieText");
     let x = 0;
-    for(let i = 0; i < total.length; i++){
-        x += total[i];
-    }
+    allNumbers.forEach((num)=>{
+        x += Number(num.textContent);
+    })
     alert(x)
 })
 
